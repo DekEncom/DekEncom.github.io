@@ -35,7 +35,7 @@
                     var providerData = user.providerData;
                     //var date = user.dateTime;
                     var database = firebase.database();
-                    firebase.database().ref('Users').child().set({
+                    firebase.database().ref().child(id).set({
                         username: displayName,
                         email: email,
                         profile_picture : photoURL
