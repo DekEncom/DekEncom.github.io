@@ -33,9 +33,8 @@
                     var uid = user.uid;
                     var phoneNumber = user.phoneNumber;
                     var providerData = user.providerData;
-                    //var date = user.dateTime;
                     var database = firebase.database();
-                    firebase.database().ref(User).child(user.displayName).set({
+                    firebase.database().ref('Users').child(user.displayName).set({
                         username: displayName,
                         email: email,
                         profile_picture : photoURL
@@ -71,16 +70,6 @@
         window.addEventListener('load', function() {
             initApp()
         });
-
-
-
-
-         function writeUserData(displayName , email, photoURL) {
-
-         }
-
-
-
 
 
     </script>
