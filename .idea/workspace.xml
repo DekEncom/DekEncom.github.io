@@ -27,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignIn.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SignIn.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SignIn.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-258">
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_list.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show_list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/show_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="110" column="58" lean-forward="true" selection-start-line="110" selection-start-column="58" selection-end-line="110" selection-end-column="58" />
+            <state relative-caret-position="374">
+              <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -189,7 +189,7 @@
       <workItem from="1505569761800" duration="12419000" />
       <workItem from="1505632064842" duration="1047000" />
       <workItem from="1505633183696" duration="135000" />
-      <workItem from="1505633416313" duration="8068000" />
+      <workItem from="1505633416313" duration="8307000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1505633471100</created>
@@ -226,11 +226,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505642133595</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="test1">
+      <created>1505642294050</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1505642294050</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25052000" />
+    <option name="totallyTimeSpent" value="25291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
@@ -423,14 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/show_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="58" lean-forward="true" selection-start-line="110" selection-start-column="58" selection-end-line="110" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-207">
@@ -443,6 +442,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-258">
           <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/show_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
           <folding />
         </state>
       </provider>
