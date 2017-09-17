@@ -77,7 +77,6 @@
 
     <script>
              var database = firebase.database();
-
              function writeUserData(userId, name, email, imageUrl) {
              var d = new Date();
                   firebase.database().ref('users/' + userId).set({
@@ -89,13 +88,6 @@
                 });
             }
             console.log("Insert Seccuess");
-
-            //function readyTopush() {
-            //      alert("Push Bottle to Smartbin");
-           // }
-
-
-
 
     </script>
 
@@ -115,26 +107,12 @@
                                                     <div class="col border border-success">
 
                                                           <h1>SB Number.1</h1>
-                                                        <p id="demo"></p>
-
-                                                        <script>
-                                                            document.getElementById("demo").innerHTML = Date();
-                                                        </script>
-
                                                         <br>
                                                              <button type="button" class="btn btn-primary" onclick="readyTopush()">READY</button>
-                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-
-                                                        </button>
                                                     </div>
                                                  <div class="col-1 border border-dark"></div>
 
                                             </div>
-
-
-
-
-
                                     </div>
                              <div class="col-1 border border-danger"></div>
 </div>
