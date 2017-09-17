@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Sample FirebaseUI App</title>
+    <title>Smart Bin For Green University</title>
     <!-- *******************************************************************************************
        * TODO(DEVELOPER): Paste the initialization snippet from:
        * Firebase Console > Overview > Add Firebase to your web app. *
@@ -33,12 +33,8 @@
                     var uid = user.uid;
                     var phoneNumber = user.phoneNumber;
                     var providerData = user.providerData;
-                    var database = firebase.database();
-                    firebase.database().ref('Users').child(user.displayName).set({
-                        username: displayName,
-                        email: email,
-                        profile_picture : photoURL
-                    });
+
+
 
                     user.getIdToken().then(function(accessToken) {
                         document.getElementById('sign-in-status').textContent = 'Signed in';
@@ -50,12 +46,13 @@
                             phoneNumber: phoneNumber,
                             photoURL: photoURL,
                             uid: uid,
-                            accessToken: accessToken,
-                            providerData: providerData
+                            //accessToken: accessToken,
+                            //providerData: providerData
                             //Date: date
                         }, null, '  ');
 
                     });
+                    writeUserData(uid, displayName, email ,photoURL);
                 } else {
                     // User is signed out.
                     document.getElementById('sign-in-status').textContent = 'Signed out';
@@ -73,9 +70,25 @@
 
 
     </script>
+
+    <script>
+             var database = firebase.database();
+            function writeUserData(userId, name, email, imageUrl) {
+                firebase.database().ref('users/' + userId).set({
+                    username: name,
+                    email: email,
+                    profile_picture : imageUrl,
+                    SBNumber: "SB1"
+                });
+            }
+            console.log("Insert Seccuess");
+
+
+
+
+    </script>
 </head>
 <body>
-<h1>Welcome to My Awesome App</h1>
 <div class ="But"id="sign-in-status"></div>
 <div id="sign-in"></div>
 <div id="account-details"></div>
