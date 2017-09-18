@@ -55,7 +55,7 @@
                         }, null, '  ');
 
                     });
-                    writeUserData(uid, displayName, email ,photoURL);
+                     writeUserData(uid, displayName, email ,photoURL);
                 } else {
                     // User is signed out.
                     document.getElementById('sign-in-status').textContent = 'Signed out';
@@ -67,6 +67,7 @@
             });
         };
 
+
         window.addEventListener('load', function() {
             initApp()
         });
@@ -75,18 +76,37 @@
     </script>
 
     <script>
-             var database = firebase.database();
+
+        var database = firebase.database();
+
+            console.log("Send Seccuess");
              function writeUserData(userId, name, email, imageUrl) {
-             var d = new Date();
-                  firebase.database().ref('users/' + userId).set({
-                   // username: name,
-                  //  email: email,
-                   // profile_picture : imageUrl,
-                    Logtime:  d,
-                    SBNumber: "SB1"
-                });
-            }
+
+                 firebase.database().ref('users/' + userId).set({
+                     username: name,
+                     email: email,
+                     profile_picture: imageUrl,
+                     SBNumber: "SB1"
+                 });
+                 firebase.database().ref('LogUser/').child('Lasted').set({
+                    Uid : userId,
+                    SBNumber: "SB1",
+                    StatusDevice: parseInt(1)
+                 });
+
+                 var d = new Date();
+                 firebase.database().ref('Log/' + d).set({
+                     Uid: userId,
+                     SBNumber: "SB1"
+
+
+                 });
+
+             }
             console.log("Insert Seccuess");
+
+
+
 
     </script>
 
@@ -107,7 +127,7 @@
 
                                                           <h1>SB Number.1</h1>
                                                         <br>
-                                                             <button type="button" class="btn btn-primary">READY</button>
+                                                             <button type="button" class="btn btn-primary" onclick="Status();">READY</button>
                                                     </div>
                                                  <div class="col-1 border border-dark"></div>
 
