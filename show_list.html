@@ -37,9 +37,8 @@
                     var phoneNumber = user.phoneNumber;
                     var providerData = user.providerData;
 
-
-
-
+                   document.getElementById("Name").innerHTML = "Hi : " + displayName;
+                    
                     user.getIdToken().then(function(accessToken) {
                         document.getElementById('sign-in-status').textContent = 'Signed in';
                         document.getElementById('sign-in').textContent = 'Sign out';
@@ -143,6 +142,7 @@
                                                     <div class="col border border-success">
 
                                                           <h1>SB Number.1</h1>
+                                                          <h3 id="Name" ></h3>
                                                         <br>
                                                             <!--<div class ="Button"id="sign-in-status"></div>
                                                             <div id="sign-in"></div>
@@ -150,9 +150,10 @@
                                                             <!-- <button type="button" class="btn btn-primary" onclick="Status();">READY</button>-->
                                                             <input type="button" value="GET All of Data" onclick="ShowData()">  
                                                             <div class="chatlog"></div>
+                                                            <button type="button" class="btn btn-danger"  onclick="Signout()">Sign Out</button>
                                                    </div>
                                                   <div class="col-1">
-                                                      <button type="button" class="btn btn-danger"  onclick="Signout()">Sign Out</button>
+                                                      
                                                   </div>
 
                                             </div>
