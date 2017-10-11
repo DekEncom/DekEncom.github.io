@@ -106,7 +106,7 @@
              }
             console.log("Insert Seccuess");
           
-           <!--Show Data -->
+         
             function ShowData() {
                 var myFirebaseRef = new Firebase("https://sb-fgu.firebaseio.com/");
                 var chatRef = myFirebaseRef.child("History");
@@ -115,7 +115,6 @@
                     $(".chatlog").append(msgData.SBNumber + " : " + msgData.Username + " : " + msgData.Logbottle +  " <br>");
                 });
             }
-          <!-- End  Show Data -->
 
             function Signout() {
                   firebase.auth().signOut().then(function() {
