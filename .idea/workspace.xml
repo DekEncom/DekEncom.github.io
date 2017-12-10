@@ -4,8 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/Page1.html" line="45" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f02f8bc-bfad-4715-8036-20470ffa0243" name="Default" comment="test1">
+    <list default="true" id="2f02f8bc-bfad-4715-8036-20470ffa0243" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Homepage.html" afterPath="$PROJECT_DIR$/Homepage.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,8 +53,8 @@
       <file leaf-file-name="Homepage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="126" column="0" lean-forward="true" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+            <state relative-caret-position="440">
+              <caret line="139" column="83" lean-forward="true" selection-start-line="139" selection-start-column="83" selection-end-line="139" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -98,8 +99,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="313" />
-    <option name="y" value="-14" />
+    <option name="x" value="257" />
+    <option name="y" value="-8" />
     <option name="width" value="1047" />
     <option name="height" value="920" />
   </component>
@@ -223,7 +224,7 @@
       <workItem from="1512816941736" duration="1144000" />
       <workItem from="1512837388107" duration="2558000" />
       <workItem from="1512907531526" duration="5371000" />
-      <workItem from="1512916093439" duration="11680000" />
+      <workItem from="1512916093439" duration="11752000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1505633471100</created>
@@ -302,11 +303,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512927912874</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="test1">
+      <created>1512928036001</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1512928036001</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86865000" />
+    <option name="totallyTimeSpent" value="86937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
@@ -709,8 +717,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="126" column="0" lean-forward="true" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+        <state relative-caret-position="440">
+          <caret line="139" column="83" lean-forward="true" selection-start-line="139" selection-start-column="83" selection-end-line="139" selection-end-column="83" />
           <folding />
         </state>
       </provider>
