@@ -38,7 +38,7 @@
                     var providerData = user.providerData;
 
 
-                    document.getElementById("Name").innerHTML = "Hi : " + displayName  +"  UID : " + uid ;
+                    document.getElementById("Name").innerHTML = "Hi : " + displayName;
 
                     user.getIdToken().then(function(accessToken) {
                         document.getElementById('sign-in-status').textContent = 'Signed in';
