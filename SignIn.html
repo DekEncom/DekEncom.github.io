@@ -29,7 +29,7 @@
         <script type="text/javascript">
             // FirebaseUI config.
             var uiConfig = {
-                signInSuccessUrl: 'show_list.html',
+                signInSuccessUrl: 'Homepage.html',
                 signInOptions: [
                     // Leave the lines as is for the providers you want to offer your users.
                     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -40,7 +40,7 @@
                     //firebase.auth.PhoneAuthProvider.PROVIDER_ID
                 ],
                 // Terms of service url.
-                tosUrl: '<show_list.html>'
+                tosUrl: '<Homepage.html>'
             };
             // Initialize the FirebaseUI Widget using Firebase.
             var ui = new firebaseui.auth.AuthUI(firebase.auth());
