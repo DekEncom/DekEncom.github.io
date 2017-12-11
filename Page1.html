@@ -25,12 +25,12 @@
 
 
         var database = firebase.database();
-        var ref = database.ref('History');
-
+       // var ref = database.ref('History');
+        var ref = database.ref();
         var text = "";
         var text2 = "";
         var Sum = 0;
-        ref.once('value',gotData);
+       /* ref.once('value',gotData);
 
         function  gotData(data){
              var  bottle = data.val();
@@ -48,12 +48,32 @@
             document.getElementById("demo").innerHTML = text;
             document.getElementById("sum").innerHTML =  text2;
         }
+       */
+       function gotData() {
+           ref.once('value').then(function (snapshot) {
+               var key = snapshot.key;
+               var chilldKey = snapshot.child("History").val();
+               console.log(key, chilldKey);
 
+               var  data = chilldKey;
+               var  keys = Object.keys(data);
+               for(var i=0;i < keys.length; i++){
+                   var k =  keys[i];
+                   var name = data[k].Username;
+                   var Count = data[k].Logbottle;
 
+                   console.log(name , Count);
+                   text += name + ' : ' + Count +"<br>";
+                   Sum += Count;
+                   text2 = 'You Bottle is ' + Sum + ' Bottles';
 
+               }
+               document.getElementById("demo").innerHTML = text;
+               document.getElementById("sum").innerHTML =  text2;
 
+           });
 
-
+       }
 
     </script>
 
