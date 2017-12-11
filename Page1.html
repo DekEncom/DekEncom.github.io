@@ -12,10 +12,9 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
 
-
-
-
     <script type="text/javascript">
+
+
         // Initialize Firebase
         var config = {
             apiKey: "AIzaSyB5J3z8FirEN4HskBoM1fqsj6vkdTATG9g",
@@ -26,7 +25,7 @@
             messagingSenderId: "368024117056"
         };
         firebase.initializeApp(config);
-
+       var Uid;
 
         initApp =  function() {
             firebase.auth().onAuthStateChanged(function(user) {
@@ -43,10 +42,12 @@
 
                     document.getElementById("Name").innerHTML = "Hi : " + displayName;
 
-                    user.getIdToken().then(function(accessToken) {
-                        document.getElementById('sign-in-status').textContent = 'Signed in';
-                        document.getElementById('sign-in').textContent = 'Sign out';
-                        document.getElementById('account-details').textContent = JSON.stringify({
+                    var userId = firebase.auth().currentUser.uid;
+                     Uid = userId;
+                  /*  user.getIdToken().then(function(accessToken) {
+                      //  document.getElementById('sign-in-status').textContent = 'Signed in';
+                       // document.getElementById('sign-in').textContent = 'Sign out';
+                      //  document.getElementById('account-details').textContent = JSON.stringify({
                             displayName: displayName,
                             email: email,
                             emailVerified: emailVerified,
@@ -59,7 +60,7 @@
                         }, null, '  ');
 
                     });
-
+          */
 
                 }
             }, function(error) {
@@ -99,11 +100,16 @@
              document.getElementById("sum").innerHTML =  text2;
          }
         */
+
+
+
+     //   var userId =  firebase.auth().currentUser.uid;
+        //console.log(userId);
         function gotData() {
             ref.once('value').then(function (snapshot) {
                 var key = snapshot.key;
                 var chilldKey = snapshot.child("History").val();
-                console.log(key, chilldKey);
+               // console.log(key, chilldKey);
 
                 var  data = chilldKey;
                 var  keys = Object.keys(data);
@@ -111,19 +117,27 @@
                     var k = keys[i];
                     var name = data[k].Username;
                     var Count = data[k].Logbottle;
+                    var uid = data[k].UID;
 
                     console.log(name, Count);
-                    if (Count != 0) {
-                        text += name + ' : ' + Count + "<br>";
-                        Sum += Count;
+                    if(Uid === uid){
+                        if (Count !== 0) {
+                            text += name + ' : ' + Count + "<br>";
+                            Sum += Count;
+                        }
                     }
-
                     text2 = 'You Bottle is ' + Sum + ' Bottles';
 
                 }
                 document.getElementById("demo").innerHTML = text;
                 document.getElementById("sum").innerHTML =  text2;
 
+
+                // clear Value
+                Sum = 0;
+                text = "";
+                text2 = "";
+                //
             });
 
         }
