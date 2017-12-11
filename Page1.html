@@ -25,7 +25,8 @@
             messagingSenderId: "368024117056"
         };
         firebase.initializeApp(config);
-       var Uid;
+        var Uid;
+        var UserId;
 
         initApp =  function() {
             firebase.auth().onAuthStateChanged(function(user) {
@@ -42,25 +43,10 @@
 
                     document.getElementById("Name").innerHTML = "Hi : " + displayName;
 
-                    var userId = firebase.auth().currentUser.uid;
+                    userId = firebase.auth().currentUser.uid;
+                    //console.log(userId);
                      Uid = userId;
-                  /*  user.getIdToken().then(function(accessToken) {
-                      //  document.getElementById('sign-in-status').textContent = 'Signed in';
-                       // document.getElementById('sign-in').textContent = 'Sign out';
-                      //  document.getElementById('account-details').textContent = JSON.stringify({
-                            displayName: displayName,
-                            email: email,
-                            emailVerified: emailVerified,
-                            phoneNumber: phoneNumber,
-                            photoURL: photoURL,
-                            uid: uid,
-                            //accessToken: accessToken,
-                            //providerData: providerData
-                            //Date: date
-                        }, null, '  ');
-
-                    });
-          */
+                    // console.log(Uid);
 
                 }
             }, function(error) {
@@ -81,30 +67,7 @@
         var text = "";
         var text2 = "";
         var Sum = 0;
-        /* ref.once('value',gotData);
-
-         function  gotData(data){
-              var  bottle = data.val();
-              var  keys = Object.keys(bottle);
-              console.log(bottle , keys);
-              for(var i=0;i < keys.length; i++){
-                     var k = keys[i];
-                     var name = bottle[k].Username;
-                     var Logbottle = bottle[k].Logbottle;
-                console.log(name , Logbottle);
-                    text += name + ' : ' + Logbottle  +"<br>";
-                     Sum += Logbottle;
-                    text2 = 'You Bottle is ' + Sum + ' Bottles';
-              }
-             document.getElementById("demo").innerHTML = text;
-             document.getElementById("sum").innerHTML =  text2;
-         }
-        */
-
-
-
-     //   var userId =  firebase.auth().currentUser.uid;
-        //console.log(userId);
+        var User;
         function gotData() {
             ref.once('value').then(function (snapshot) {
                 var key = snapshot.key;
@@ -118,15 +81,18 @@
                     var name = data[k].Username;
                     var Count = data[k].Logbottle;
                     var uid = data[k].UID;
-
-                    console.log(name, Count);
-                    if(Uid === uid){
-                        if (Count !== 0) {
+                    User = uid;
+                   // console.log(uid);
+                   // console.log(uid);
+                    if( Uid == User){
+                        console.log("Equal!!");
+                        if (Count !=  0) {
                             text += name + ' : ' + Count + "<br>";
                             Sum += Count;
                         }
-                    }
+                     }
                     text2 = 'You Bottle is ' + Sum + ' Bottles';
+                    //console.log(Uid);
 
                 }
                 document.getElementById("demo").innerHTML = text;
@@ -137,6 +103,7 @@
                 Sum = 0;
                 text = "";
                 text2 = "";
+                //Uid = "";
                 //
             });
 

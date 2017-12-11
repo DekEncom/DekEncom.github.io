@@ -40,29 +40,9 @@
 
                     document.getElementById("Name").innerHTML = "Hi : " + displayName;
 
-                    user.getIdToken().then(function(accessToken) {
-                        document.getElementById('sign-in-status').textContent = 'Signed in';
-                        document.getElementById('sign-in').textContent = 'Sign out';
-                        document.getElementById('account-details').textContent = JSON.stringify({
-                            displayName: displayName,
-                            email: email,
-                            emailVerified: emailVerified,
-                            phoneNumber: phoneNumber,
-                            photoURL: photoURL,
-                            uid: uid,
-                            //accessToken: accessToken,
-                            //providerData: providerData
-                            //Date: date
-                        }, null, '  ');
 
-                    });
                      writeUserData(uid, displayName, email ,photoURL);
 
-                } else {
-                    // User is signed out.
-                  //  document.getElementById('sign-in-status').textContent = 'Signed out';
-                   // document.getElementById('sign-in').textContent = 'Sign in';
-                    //document.getElementById('account-details').textContent = 'null';
                 }
             }, function(error) {
                 console.log(error);
@@ -82,7 +62,6 @@
     <script type="text/javascript">
 
         var database = firebase.database();
-
 
         console.log("Send Seccuess");
         function writeUserData(userId, name, email, imageUrl) {
@@ -106,18 +85,18 @@
 
 
             });
-            User = Uid;
+
         }
         console.log("Insert Seccuess");
 
 
         function Signout() {
             firebase.auth().signOut().then(function() {
-
                 console.log('Signed Out');
                 window.location.href = "https://dekencom.github.io/SignIn.html";
 
-            }, function(error) {
+            },
+                function(error) {
                 console.error('Sign Out Error', error);
             });
 
@@ -126,7 +105,6 @@
 
 
         function veryfyCode() {
-
 
             var database = firebase.database();
             var ref = database.ref('LogUser/CodeGen/Code');

@@ -26,6 +26,7 @@
         };
         firebase.initializeApp(config);
         var Uid;
+        var userID;
 
         initApp =  function() {
             firebase.auth().onAuthStateChanged(function(user) {
@@ -39,9 +40,9 @@
                     var phoneNumber = user.phoneNumber;
                     var providerData = user.providerData;
 
-                    document.getElementById("Name").innerHTML = "Hi : " + displayName;
-
-                    var userId = firebase.auth().currentUser.uid;
+                    //document.getElementById("Name").innerHTML = "Hi : " + displayName;
+                    document.getElementById("Name").innerHTML = "Hi : " +  "Admin";
+                    userId = firebase.auth().currentUser.uid;
                     Uid = userId;
                 }
             }, function(error) {
@@ -65,6 +66,7 @@
 
         //var userId =  firebase.auth().currentUser.uid;
         //console.log(userId);
+
         function  checkStatusbot() {
             ref.once('value').then(function (snapshot) {
                 var key = snapshot.key;
@@ -73,22 +75,22 @@
 
                 if( (Level >= 45)  && (Level <=70))
                 {
-                    Text += ' Level of Botte is ' + '25' + '%';
+                    Text += ' Level of Botte is ' + ' 25' + ' %';
 
                 }
                 else if( (Level >= 30)  && (Level <=45))
                 {
-                    Text += ' Level of Botte is ' + '50' + '%';
+                    Text += ' Level of Botte is ' + ' 50' + ' %';
 
                 }
                 else if( (Level >= 15)  && (Level <=30))
                 {
-                    Text += ' Level of Botte is ' + '75' + '%';
+                    Text += ' Level of Botte is ' + ' 75' + ' %';
 
                 }
                 else if( (Level >= 0)  && (Level <=15))
                 {
-                    Text += ' Level of Botte is ' + '100' + '%';
+                    Text += ' Level of Botte is ' + ' 100' + ' %';
 
                 }
 
@@ -102,59 +104,11 @@
         }
 
 
-
-              /*  var  data = chilldKey;
-                var  keys = Object.keys(data);
-                for(var i=0;i < keys.length; i++) {
-                    var k = keys[i];
-                    var name = data[k].Username;
-                    var Count = data[k].Logbottle;
-                    var uid = data[k].UID;
-
-                    console.log(name, Count);
-                    if(Uid === uid){
-                        if (Count !== 0) {
-                            text += name + ' : ' + Count + "<br>";
-                            Sum += Count;
-                        }
-                    }
-                    else{
-                        alert('You Never Use Device  Please Put the Bottle');
-                    }
-                    text2 = 'You Bottle is ' + Sum + ' Bottles';
-
-                }
-                document.getElementById("demo").innerHTML = text;
-                document.getElementById("sum").innerHTML =  text2;
-
-
-                // clear Value
-                Sum = 0;
-                text = "";
-                text2 = "";
-                //
-            }
-            );*/
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
 
 
 
-
-    <script>
-
-    </script>
 
 
 </head>
@@ -179,6 +133,8 @@
             <h1>Level of Bottle</h1>
              <br>
             <div class="col-6">
+                <h3 id="Name"></h3>
+                <br>
                 <h3 class="btn btn-success" onclick="checkStatusbot();">Smart bin Number 1</h3>
                     <p id="demo"></p>
                 <h3 class="btn btn-danger">Smart bin Number 2</h3>
