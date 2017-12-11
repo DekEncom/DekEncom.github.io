@@ -83,6 +83,7 @@
 
         var database = firebase.database();
 
+
         console.log("Send Seccuess");
         function writeUserData(userId, name, email, imageUrl) {
 
@@ -105,15 +106,16 @@
 
 
             });
-
+            User = Uid;
         }
         console.log("Insert Seccuess");
 
 
         function Signout() {
             firebase.auth().signOut().then(function() {
+
                 console.log('Signed Out');
-                alert("Sign Out");
+                window.location.href = "https://dekencom.github.io/SignIn.html";
 
             }, function(error) {
                 console.error('Sign Out Error', error);
@@ -123,7 +125,7 @@
 
 
 
-        function myFunction() {
+        function veryfyCode() {
 
 
             var database = firebase.database();
@@ -186,8 +188,7 @@
                                                             <input type="text"  id="activeCode" placeholder="        Code XXXXXX">
                                                             <br>
                                                             <br>
-                                                            <button  class="btn btn-success" onclick="myFunction();" >Confirm</button>
-                                                            <button  class="btn btn-danger" onclick="">Cancle</button>
+                                                            <button  class="btn btn-success" onclick="veryfyCode();" >Confirm</button>
                                                             <br>
                                                             <br>
                                                             <p id="demo"></p>

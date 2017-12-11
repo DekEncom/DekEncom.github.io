@@ -25,7 +25,7 @@
             messagingSenderId: "368024117056"
         };
         firebase.initializeApp(config);
-       var Uid;
+        var Uid;
 
         initApp =  function() {
             firebase.auth().onAuthStateChanged(function(user) {
@@ -39,29 +39,10 @@
                     var phoneNumber = user.phoneNumber;
                     var providerData = user.providerData;
 
-
                     document.getElementById("Name").innerHTML = "Hi : " + displayName;
 
                     var userId = firebase.auth().currentUser.uid;
-                     Uid = userId;
-                  /*  user.getIdToken().then(function(accessToken) {
-                      //  document.getElementById('sign-in-status').textContent = 'Signed in';
-                       // document.getElementById('sign-in').textContent = 'Sign out';
-                      //  document.getElementById('account-details').textContent = JSON.stringify({
-                            displayName: displayName,
-                            email: email,
-                            emailVerified: emailVerified,
-                            phoneNumber: phoneNumber,
-                            photoURL: photoURL,
-                            uid: uid,
-                            //accessToken: accessToken,
-                            //providerData: providerData
-                            //Date: date
-                        }, null, '  ');
-
-                    });
-          */
-
+                    Uid = userId;
                 }
             }, function(error) {
                 console.log(error);
@@ -76,42 +57,53 @@
 
 
         var database = firebase.database();
-        // var ref = database.ref('History');
-        var ref = database.ref();
-        var text = "";
-        var text2 = "";
-        var Sum = 0;
-        /* ref.once('value',gotData);
-
-         function  gotData(data){
-              var  bottle = data.val();
-              var  keys = Object.keys(bottle);
-              console.log(bottle , keys);
-              for(var i=0;i < keys.length; i++){
-                     var k = keys[i];
-                     var name = bottle[k].Username;
-                     var Logbottle = bottle[k].Logbottle;
-                console.log(name , Logbottle);
-                    text += name + ' : ' + Logbottle  +"<br>";
-                     Sum += Logbottle;
-                    text2 = 'You Bottle is ' + Sum + ' Bottles';
-              }
-             document.getElementById("demo").innerHTML = text;
-             document.getElementById("sum").innerHTML =  text2;
-         }
-        */
+        var ref = database.ref('Ultrasonic');
+        //var ref = database.ref();
+        var Level;
+        var Text = "";
 
 
-
-     //   var userId =  firebase.auth().currentUser.uid;
+        //var userId =  firebase.auth().currentUser.uid;
         //console.log(userId);
-        function gotData() {
+        function  checkStatusbot() {
             ref.once('value').then(function (snapshot) {
                 var key = snapshot.key;
-                var chilldKey = snapshot.child("History").val();
-               // console.log(key, chilldKey);
+                var chilldKey = snapshot.child("Distance").val();
+                Level = chilldKey;
 
-                var  data = chilldKey;
+                if( (Level >= 45)  && (Level <=70))
+                {
+                    Text += ' Level of Botte is ' + '25' + '%';
+
+                }
+                else if( (Level >= 30)  && (Level <=45))
+                {
+                    Text += ' Level of Botte is ' + '50' + '%';
+
+                }
+                else if( (Level >= 15)  && (Level <=30))
+                {
+                    Text += ' Level of Botte is ' + '75' + '%';
+
+                }
+                else if( (Level >= 0)  && (Level <=15))
+                {
+                    Text += ' Level of Botte is ' + '100' + '%';
+
+                }
+
+                //Text += ' Level of Botte is ' + Level;
+                document.getElementById("demo").innerHTML = Text;
+                console.log(key, chilldKey);
+
+                 Text = "";
+                 Level = 0;
+            });
+        }
+
+
+
+              /*  var  data = chilldKey;
                 var  keys = Object.keys(data);
                 for(var i=0;i < keys.length; i++) {
                     var k = keys[i];
@@ -141,9 +133,10 @@
                 text = "";
                 text2 = "";
                 //
-            });
+            }
+            );*/
 
-        }
+
 
 
 
@@ -183,23 +176,22 @@
         <div class="col border border-info">
 
             <br>
-            <h1>SB Number.1</h1>
-            <h3 id="Name" ></h3>
-            <br>
+            <h1>Level of Bottle</h1>
+             <br>
             <div class="col-6">
+                <h3 class="btn btn-success" onclick="checkStatusbot();">Smart bin Number 1</h3>
+                    <p id="demo"></p>
+                <h3 class="btn btn-danger">Smart bin Number 2</h3>
+                    <p id="demo"></p>
+                <h3 class="btn btn-danger">Smart bin Number 3</h3>
+                   <p id="demo"></p>
+                <h3 class="btn btn-danger">Smart bin Number 4</h3>
+                   <p id="demo"></p>
 
-                <button  class="btn btn-success" onclick="gotData();">Get data</button>
-                <!--<button  class="btn btn-danger"  id ="Clear_Button">clear</button>-->
-               <br>
-               <br>
-               <p id="demo"></p>
-               <button class = "btn btn-success"  id="sum"> </button>
-               <br>
-               <br>
-           </div>
+            </div>
 
-           <!--   <button type="button" class="btn btn-primary" onclick="ShowData()">GET all data</button>
-              <div class="chatlog"></div>-->
+            <!--   <button type="button" class="btn btn-primary" onclick="ShowData()">GET all data</button>
+               <div class="chatlog"></div>-->
         </div>
         <div class="col-1"></div>
 
